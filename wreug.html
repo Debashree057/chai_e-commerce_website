@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Product Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .slider {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slider .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider .slides .card {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+        }
+        .slider .slides .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .slider .slides .card h3 {
+            margin: 10px 0;
+        }
+        .slider .slides .card p {
+            margin: 10px 0;
+        }
+        .slider .slides .card .price {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .slider .slides .card .btn {
+            padding: 10px 20px;
+            background-color: #5a8d42;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .slider .arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider .arrows .prev, .slider .arrows .next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider">
+    <div class="slides">
+        <div class="card">
+            <img src="tea_image.jpg" alt="Masala Chai">
+            <h3>Masala Chai</h3>
+            <p>Indulge in the aromatic blend of spices and black tea with our authentic Masala Chai. Perfect for a cozy evening or a refreshing morning.</p>
+            <div class="price">Rs. 49.00</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+        <div class="card">
+            <img src="tea_image.jpg" alt="Masala Chai">
+            <h3>Masala Chai</h3>
+            <p>Indulge in the aromatic blend of spices and black tea with our authentic Masala Chai. Perfect for a cozy evening or a refreshing morning.</p>
+            <div class="price">Rs. 49.00</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+        <div class="card">
+            <img src="tea_image.jpg" alt="Masala Chai">
+            <h3>Masala Chai</h3>
+            <p>Indulge in the aromatic blend of spices and black tea with our authentic Masala Chai. Perfect for a cozy evening or a refreshing morning.</p>
+            <div class="price">Rs. 49.00</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+        <div class="card">
+            <img src="tea_image.jpg" alt="Masala Chai">
+            <h3>Masala Chai</h3>
+            <p>Indulge in the aromatic blend of spices and black tea with our authentic Masala Chai. Perfect for a cozy evening or a refreshing morning.</p>
+            <div class="price">Rs. 49.00</div>
+            <a href="#" class="btn">Add to Cart</a>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+    <div class="arrows">
+        <div class="prev" onclick="moveSlide(-1)">&#10094;</div>
+        <div class="next" onclick="moveSlide(1)">&#10095;</div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+
+    function moveSlide(direction) {
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.card').length;
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+    }
+</script>
+
+</body>
+</html>
